@@ -14,8 +14,10 @@ export function useCallbackPrompt(when: boolean): (boolean | (() => void))[] {
     setShowPrompt(false);
   }, []);
 
+  // handle blocking when user click on another route prompt will be shown
   const handleBlockedNavigation = useCallback(
     (nextLocation) => {
+        // in if condition we are checking next location and current location are equals or not
       if (
         !confirmedNavigation &&
         nextLocation.location.pathname !== location.pathname
